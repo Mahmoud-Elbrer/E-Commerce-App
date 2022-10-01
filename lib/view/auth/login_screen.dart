@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
 import '../../constance.dart';
+import '../../core/view_model/auth.dart';
 import '../widget/custom_button.dart';
 import '../widget/custom_social_bottom.dart';
 import '../widget/custom_text.dart';
 import '../widget/custom_text_form_field.dart';
+import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetWidget<AuthViewModel> {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
+        elevation: 0,
         backgroundColor: Colors.white,
       ),
       body: Padding(
@@ -46,20 +48,21 @@ class LoginScreen extends StatelessWidget {
               text: 'Password',
               hintText: '***********',
             ),
+            const SizedBox(
+              height: 20,
+            ),
             CustomText(
                 text: 'Forgot Password?',
                 fontSize: 14,
                 alignment: Alignment.topRight),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('SIGN IN'),
-            ),
             const SizedBox(
               height: 20,
             ),
             CustomButton(
               text: 'SIGN IN',
-              onPressed: () {},
+              onPressed: () {
+                Get.to(LoginScreen());
+              },
               color: primaryColor,
             ),
             const SizedBox(
@@ -67,7 +70,7 @@ class LoginScreen extends StatelessWidget {
             ),
             CustomText(text: '-OR-', fontSize: 14, alignment: Alignment.center),
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
             CustomSocialBottom(
               text: 'Sign In with Facebook',
@@ -81,7 +84,9 @@ class LoginScreen extends StatelessWidget {
             CustomSocialBottom(
               text: 'Sign In with Google',
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                controller.googleSigInMethode();
+              },
               imagePath: 'assets/images/google.png',
             ),
           ],

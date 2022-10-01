@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
       child: CustomText(
         text: 'SIGN IN',
         alignment: Alignment.center,
-        color: Colors.black,
+        color: Colors.white,
       ),
     );
   }
