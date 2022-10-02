@@ -6,11 +6,11 @@ class CustomTextFormField extends StatelessWidget {
 
   final String? hintText;
 
-  final Function? onSaved;
+   Function(String? val)? onSaved;
 
-  final Function? validator;
+  final FormFieldValidator? validator;
 
-  const CustomTextFormField(
+   CustomTextFormField(
       {super.key, this.text, this.hintText, this.onSaved, this.validator});
 
   @override
@@ -20,8 +20,8 @@ class CustomTextFormField extends StatelessWidget {
         children: [
           CustomText(text: text!, fontSize: 14, color: Colors.grey.shade900),
           TextFormField(
-            // onSaved: onSaved ,
-            // validator: validator,
+            onSaved: onSaved,
+            validator: validator,
             decoration: InputDecoration(
               hintText: hintText!,
               hintStyle: const TextStyle(
