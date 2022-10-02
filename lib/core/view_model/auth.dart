@@ -77,6 +77,18 @@ class AuthViewModel extends GetxController {
     }
   }
 
+
+  void createAccountWithEmailAndPassword() async {
+    try {
+      print("Here");
+      await _auth.createUserWithEmailAndPassword( email: "email2@gmail.com", password: "email2@gmail.com" );
+      Get.offAll(const HomeScreen());
+    } catch (e) {
+      Get.snackbar("Error login Account", e.toString(),
+          colorText: Colors.black, snackPosition: SnackPosition.BOTTOM);
+    }
+  }
+
   void signOut() async {
     await _auth.signOut();
   }
