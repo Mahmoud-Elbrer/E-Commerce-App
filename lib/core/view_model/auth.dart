@@ -17,7 +17,7 @@ class AuthViewModel extends GetxController {
 
   Rxn<User> _user = Rxn<User>();
 
-  String? get user => _user.value?.email ;
+  String? get user => _user.value?.email;
 
   @override
   void onInit() {
@@ -75,5 +75,9 @@ class AuthViewModel extends GetxController {
       Get.snackbar("Error login Account", e.toString(),
           colorText: Colors.black, snackPosition: SnackPosition.BOTTOM);
     }
+  }
+
+  void signOut() async {
+    await _auth.signOut();
   }
 }
